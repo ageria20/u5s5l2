@@ -34,4 +34,17 @@ public class AuthorController {
         return "AUTHOR CREATED";
     }
 
+    @PutMapping("/{authorId}")
+    @ResponseStatus(HttpStatus.OK)
+    public String updateAuthor(@PathVariable int authorId, @RequestBody Author body){
+        authorService.findByIdAndUpdate(authorId, body);
+        return "AUTHRO UPDATED";
+    }
+
+    @DeleteMapping("/{authorId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteById(@PathVariable int authorId){
+        authorService.findByIdAndDelete(authorId);
+    }
+
 }

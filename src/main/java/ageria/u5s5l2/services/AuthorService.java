@@ -33,10 +33,19 @@ public class AuthorService {
             if(author.getId() == id){
                 found = body;
                 found.setName(body.getName());
-                found.setName(body.getName());
-                found.setName(body.getName());
-                found.setName(body.getName());
+                found.setSurname(body.getSurname());
+                found.setEmail(body.getEmail());
+                found.setBirthDate(body.getBirthDate());
             }
         }
+        return found;
+    }
+
+    public void findByIdAndDelete(int id){
+        Author found = null;
+        for(Author author : authorList){
+            if(author.getId() == id) found = author;
+        }
+        this.authorList.remove(found);
     }
 }
