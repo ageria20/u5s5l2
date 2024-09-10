@@ -9,10 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+@Getter
 @Service
 public class AuthorService {
 
-    @Getter
     List<Author> authorList = new ArrayList<>();
 
     public Author findAuthorById(int id){
@@ -31,7 +31,7 @@ public class AuthorService {
         Author found = null;
         for(Author author : authorList){
             if(author.getId() == id){
-                found = body;
+                found = author;
                 found.setName(body.getName());
                 found.setSurname(body.getSurname());
                 found.setEmail(body.getEmail());

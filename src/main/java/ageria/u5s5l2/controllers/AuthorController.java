@@ -43,8 +43,9 @@ public class AuthorController {
 
     @DeleteMapping("/{authorId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteById(@PathVariable int authorId){
+    public String deleteAuthor(@PathVariable int authorId){
         authorService.findByIdAndDelete(authorId);
+        return "AUTHOR DELETED";
     }
 
 }

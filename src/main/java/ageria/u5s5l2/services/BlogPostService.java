@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+@Getter
 @Service
 public class BlogPostService {
 
-    @Getter
     List<BlogPost> blogPostList = new ArrayList<>();
 
     public BlogPost findPostById(int id){
@@ -35,7 +35,7 @@ public class BlogPostService {
         BlogPost found = null;
         for(BlogPost blogPost : blogPostList){
             if(blogPost.getId() == blogPostId){
-                found = body;
+                found = blogPost;
                 found.setCover("https://localhost:8080/" + body.getTitle());
                 found.setTitle(body.getTitle());
                 found.setCategory(body.getCategory());
