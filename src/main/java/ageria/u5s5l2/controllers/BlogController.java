@@ -25,7 +25,7 @@ public class BlogController {
         return blogPostService.findPostById(blogPostId);
     }
 
-    @PostMapping()
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public String createBloPost(@RequestBody BlogPost body){
         blogPostService.saveBlogPost(body);

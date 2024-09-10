@@ -27,10 +27,11 @@ public class AuthorController {
         return authorService.findAuthorById(authorId);
     }
 
-    @PostMapping()
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public String createAuthor(@RequestBody Author body){
         authorService.saveAuthor(body);
         return "AUTHOR CREATED";
     }
+
 }

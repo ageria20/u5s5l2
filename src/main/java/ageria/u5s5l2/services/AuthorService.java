@@ -18,10 +18,25 @@ public class AuthorService {
     public Author findAuthorById(int id){
         return authorList.stream().filter(author -> author.getId() == id).findFirst().orElse(null);
     }
+
+
     public void saveAuthor(Author body){
         Random random = new Random();
         body.setId(random.nextInt(1,1000000));
-        body.setAvatar("https://localhost:8080/api/?name=" + body.getName() + body.getSurname());
+        body.setAvatar("https://localhost:8080/api/author?name=" + body.getName() + body.getSurname());
         this.authorList.add(body);
+    }
+
+    public Author findByIdAndUpdate(int id, Author body){
+        Author found = null;
+        for(Author author : authorList){
+            if(author.getId() == id){
+                found = body;
+                found.setName(body.getName());
+                found.setName(body.getName());
+                found.setName(body.getName());
+                found.setName(body.getName());
+            }
+        }
     }
 }
